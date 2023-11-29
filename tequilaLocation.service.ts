@@ -11,6 +11,7 @@ import {
   SearchLocationByHashtag,
   SearchLocationByTopHashtags,
   SearchLocationBySEOUrl,
+  SearchLocationByIdType,
 } from "./tequilaLocation.type";
 
 export class TequilaLocationService {
@@ -79,7 +80,7 @@ export class TequilaLocationService {
    * @returns {ITequilaLocationQuery}
    */
   async searchById(
-    params: SearchLocationByBoxType
+    params: SearchLocationByIdType
   ): Promise<ITequilaLocationQuery> {
     return (
       await this.#_axiosInstance.get<ITequilaLocationQuery>("locations/id", {
