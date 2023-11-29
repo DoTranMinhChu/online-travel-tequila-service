@@ -1,5 +1,6 @@
 import { TequilaServiceConfig } from "./tequila.type";
 import { TequilaLocationService } from "./tequilaLocation.service";
+import { TequilaSearchService } from "./tequilaSearch.service";
 
 export class TequilaService {
   _tequilaServiceConfig: TequilaServiceConfig;
@@ -11,5 +12,9 @@ export class TequilaService {
 
   get location() {
     return new TequilaLocationService(this._tequilaServiceConfig);
+  }
+
+  get search() {
+    return new TequilaSearchService(this._tequilaServiceConfig);
   }
 }
