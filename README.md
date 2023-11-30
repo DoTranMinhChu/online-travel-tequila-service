@@ -1,32 +1,127 @@
-# E-commerce Integration
+# Tequila Service Package
 
-## Introduction
-
-Đây là một thư viện hỗ trợ gọi API Google Auth. Thư viện bao gồm 1 service gọi API đi kèm những định nghĩa type dành cho typescript.
+This npm package provides functionalities to interact with the Tequila API for flight search and location information.
 
 ## Installation
 
+To install the Tequila Service Package, use npm:
 ```bash
-$ npm install online-travel-tequila-service
+    npm install online-travel-tequila-service
 ```
 
-## Config environment
 
-```
-CLIENT_EMAIL=
-PRIVATE_KEY=
-PROJECT_ID=
-```
+## Usage
 
-## EcommerceService
+### TequilaService
 
-Muốn kết nối được với service Google Auth bạn cần có 3 key ở trên. Sau đó dùng hàm dưới đây để lấy access token.
+The `TequilaService` class initializes the Tequila API service. It provides access to two main functionalities: location and flight search.
+
+#### Example:
 
 ```typescript
-...
-    npm install online-travel-tequila-service
-    const tequilaService = new TequilaService({
-        apiKey: "APi-KEY"
-    });
-...
+import { TequilaService } from 'install online-travel-tequila-service';
+
+// Initialize Tequila Service
+const tequilaService = new TequilaService({
+  apiKey: 'YOUR_API_KEY',
+  baseUrl: 'https://api.tequila.kiwi.com',
+});
+
+// Access location service
+const locationService = tequilaService.location;
+
+// Access flight search service
+const searchService = tequilaService.search
+```
+
+
+### TequilaLocationService
+
+#### Example:
+
+```typescript
+import { TequilaLocationService } from 'install online-travel-tequila-service';
+
+// Initialize Tequila Location Service
+const locationService = new TequilaLocationService({
+  apiKey: 'YOUR_API_KEY',
+  baseUrl: 'https://api.tequila.kiwi.com',
+});
+
+// Example: Search location by query
+const locationQuery = await locationService.searchByQuery({
+  term: 'New York',
+  limit: 10,
+});
+```
+
+or
+
+
+```typescript
+import { TequilaService } from 'install online-travel-tequila-service';
+
+// Initialize Tequila Service
+const tequilaService = new TequilaService({
+  apiKey: 'YOUR_API_KEY',
+  baseUrl: 'https://api.tequila.kiwi.com',
+});
+
+// Access location service
+const locationService = tequilaService.location;
+
+// Example: Search location by query
+const locationQuery = await locationService.searchByQuery({
+  term: 'New York',
+  limit: 10,
+});
+```
+
+
+### TequilaSearchService
+
+#### Example:
+
+```typescript
+// Initialize Tequila Search Service
+import { TequilaSearchService } from 'install online-travel-tequila-service';
+
+// Initialize Tequila Search Service
+const searchService = new TequilaSearchService({
+  apiKey: 'YOUR_API_KEY',
+  baseUrl: 'https://api.tequila.kiwi.com',
+});
+
+// Example: Search flights
+const flightResults = await searchService.searchFlights({
+  fly_from: 'NYC',
+  fly_to: 'LAX',
+  date_from: '2023-12-01',
+  date_to: '2023-12-05',
+});
+
+```
+
+or
+
+
+```typescript
+import { TequilaService } from 'install online-travel-tequila-service';
+
+// Initialize Tequila Service
+const tequilaService = new TequilaService({
+  apiKey: 'YOUR_API_KEY',
+  baseUrl: 'https://api.tequila.kiwi.com',
+});
+
+// Access search service
+const searchService = tequilaService.search
+
+// Example: Search flights
+const flightResults = await searchService.searchFlights({
+  fly_from: 'NYC',
+  fly_to: 'LAX',
+  date_from: '2023-12-01',
+  date_to: '2023-12-05',
+});
 ```
