@@ -1,8 +1,6 @@
 import { AxiosInstance } from "axios";
 import { axiosInstance } from "./axiosBase";
 import { TequilaServiceConfig } from "./tequila.type";
-
-import { SearchLocationByQueryType } from "./tequilaLocation.type";
 import { ISearchFlight } from "./tequilaSearch.interface";
 import { SearchFlightsType } from "./tequilaSearch.type";
 
