@@ -3,6 +3,7 @@ import {
   ECurrency,
   EFlyDaysType,
   ETequilaLangueCode,
+  ETequilaLocale,
   EVehicleType,
 } from "./tequila.enum";
 
@@ -229,9 +230,9 @@ export type SearchFlightsType = {
    *
    * Example : vn
    *
-   * @type {ETequilaLangueCode}
+   * @type {ETequilaLocale}
    */
-  locale?: ETequilaLangueCode;
+  locale?: ETequilaLocale;
 
   /**
    * result filter, minimal price
