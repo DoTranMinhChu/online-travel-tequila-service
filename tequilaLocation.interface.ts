@@ -26,7 +26,7 @@ export interface ITequilaLocation {
   dst_popularity_score: number;
   timezone: string;
   city: City;
-  location: ITequilaLocation;
+  location: ILocation;
   alternative_departure_points: ITequilaPoint[];
   tags: ITequilaTag[];
   providers: number[];
@@ -37,7 +37,10 @@ export interface ITequilaLocation {
   routing_priority: number;
   type: string;
 }
-
+export interface ILocation {
+  lat: number;
+  lon: number;
+}
 export interface City {
   id: string;
   name: string;
