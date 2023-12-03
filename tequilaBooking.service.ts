@@ -108,10 +108,13 @@ export class TequilaBookingService {
         visitor_uniqid,
       };
     return (
-      await this.#_axiosInstance.post<IBookingFlight>("booking/save_booking", {
-        params,
+      await this.#_axiosInstance.post<IBookingFlight>(
+        "booking/save_booking",
         body,
-      })
+        {
+          params,
+        }
+      )
     )?.data;
   }
 
@@ -149,9 +152,7 @@ export class TequilaBookingService {
     return (
       await this.#_axiosInstance.post<{
         status: number;
-      }>("booking/save_booking", {
-        body: data,
-      })
+      }>("booking/save_booking", data)
     )?.data;
   }
 }

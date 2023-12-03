@@ -1,4 +1,4 @@
-import { ECurrency, ETequilaLangueCode } from "./tequila.enum";
+import { ECurrency, ETequilaLangueCode, ETequilaLocale } from "./tequila.enum";
 
 export type CheckFlightsType = {
   /**
@@ -33,7 +33,7 @@ export type CheckFlightsType = {
    * The session_id binds the pricing to your particular itinerary and can help us track a specific order.
    * Find the session_id in the response of the first check_flights call and use it as a parameter in all subsequent check_flights calls.
    */
-  session_id: number;
+  session_id: string;
 
   /**
    * Conversion will be in chosen currency, but the total price and other prices are always in EUR. Default in EUR.
@@ -75,7 +75,7 @@ export interface SaveBookingFlightsType {
    * Use both formats ISO 639-1 and ISO 3166-1 for this string, two lowercase characters (indicating language as in lang parameter),
    * a dash, and two uppercase characters (indicating country).
    */
-  locale: ETequilaLangueCode;
+  locale: ETequilaLocale;
 
   /**
    * The same token you received in the search results and used in the ``check_flights`` request.
