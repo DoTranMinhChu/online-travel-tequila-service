@@ -2,7 +2,6 @@ import {
   ECabinType,
   ECurrency,
   EFlyDaysType,
-  ETequilaLangueCode,
   ETequilaLocale,
   EVehicleType,
 } from "./tequila.enum";

@@ -152,7 +152,7 @@ export class TequilaBookingService {
     return (
       await this.#_axiosInstance.post<{
         status: number;
-      }>("booking/save_booking", data)
+      }>("booking/confirm_payment", data)
     )?.data;
   }
 }

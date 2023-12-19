@@ -311,3 +311,30 @@ export enum ECurrency {
   ZMW = "ZMW",
   ZWL = "ZWL",
 }
+
+export enum EStatusesRefund {
+  /**
+   * Requested: We have received your refund application and we are now processing it.
+   *
+   */
+  requested = "requested",
+  /**
+   * Waiting_for_carrier: We have sent your refund application to the respective carriers, and we are now waiting for them to acknowledge it.
+   */
+  waiting_for_carrier = "waiting_for_carrier",
+
+  /**
+   * Carrier_is_refunding: The respective carriers acknowledged the refund application and started the refund process.
+   */
+  carrier_is_refunding = "carrier_is_refunding",
+
+  /**
+   *Refunded: The carriers have processed the refund application and refunded the booking. We’ll forward you all refunds from the carriers as soon as we receive them.
+   */
+  refunded = "refunded",
+
+  /**
+   * Denied: The carriers have processed the refund application and found that there was no applicable refund for the booking.
+   */
+  denied = "denied",
+}

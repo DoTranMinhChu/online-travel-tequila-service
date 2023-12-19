@@ -8,7 +8,6 @@ import {
   SearchLocationByQueryType,
   SearchLocationByRadiusType,
   SearchLocationTopDestinationsType,
-  SearchLocationByHashtag,
   SearchLocationByTopHashtags,
   SearchLocationBySEOUrl,
   SearchLocationByIdType,
