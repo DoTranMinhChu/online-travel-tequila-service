@@ -261,6 +261,52 @@ export interface IFlightData {
    * If all the flights in one segment are under one PNR and all the flights in the other segment are  under a different PNR, virtual interlining will be False.
    */
   virtual_interlining: boolean;
+  /**
+   * Departure time in Unix timestamp format
+   */
+  dTime: number;
+
+  /**
+   * Departure time in UTC Unix timestamp format
+   */
+  dTimeUTC: number;
+  /**
+   * Arrival time in Unix timestamp format
+   */
+  aTime: number;
+  /**
+   * Arrival time in UTC Unix timestamp format
+   */
+  aTimeUTC: number;
+  /**
+   * Latitude of the departure location
+   */
+  latFrom: number;
+  /**
+   * Longitude of the departure location
+   */
+  lngFrom: number;
+  /**
+   * Latitude of the arrival location
+   */
+  latTo: number;
+  /**
+   * Longitude of the arrival location
+   */
+  lngTo: number;
+  /**
+   * Map ID of the departure location
+   */
+  mapIdfrom: string;
+  /**
+   *  Map ID of the arrival location
+   */
+  mapIdto: string;
+
+  /**
+   *  Fly time duration
+   */
+  fly_duration: string;
 }
 
 export interface IFlightBagLimit {
@@ -316,6 +362,7 @@ export interface IFlightBagLimit {
 }
 
 export interface IFlightRoute {
+  original_return: 0;
   /**
    * ID of a particular segment.
    */
@@ -441,4 +488,46 @@ export interface IFlightRoute {
    * This parameter can contain the following values: bus, train, plane.
    */
   vehicle_type: EVehicleType;
+
+  /**
+   * Departure time in Unix timestamp format
+   */
+  dTime: number;
+
+  /**
+   * Departure time in UTC Unix timestamp format
+   */
+  dTimeUTC: number;
+  /**
+   * Arrival time in Unix timestamp format
+   */
+  aTime: number;
+  /**
+   * Arrival time in UTC Unix timestamp format
+   */
+  aTimeUTC: number;
+  /**
+   * Latitude of the departure location
+   */
+  latFrom: number;
+  /**
+   * Longitude of the departure location
+   */
+  lngFrom: number;
+  /**
+   * Latitude of the arrival location
+   */
+  latTo: number;
+  /**
+   * Longitude of the arrival location
+   */
+  lngTo: number;
+  /**
+   * Map ID of the departure location
+   */
+  mapIdfrom: string;
+  /**
+   *  Map ID of the arrival location
+   */
+  mapIdto: string;
 }
