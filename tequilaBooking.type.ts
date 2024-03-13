@@ -47,7 +47,7 @@ export type CheckFlightsType = {
   visitor_uniqid?: string;
 };
 
-export interface SaveBookingFlightsType {
+export type SaveBookingFlightsType = {
   visitor_uniqid?: string;
 
   /**
@@ -101,9 +101,15 @@ export interface SaveBookingFlightsType {
    * The value of this parameter is payu.
    */
   payment_gateway?: string;
-}
 
-export interface SaveBookingPassengerType {
+  /**
+   * Additional servicesgit
+   * The value of this parameter is payu.
+   */
+  additional_services?: SaveBookingAdditionalServices;
+};
+
+export type SaveBookingPassengerType = {
   /**
    * - date in YYYY-MM-DD format
    */
@@ -170,14 +176,14 @@ export interface SaveBookingPassengerType {
    * Do not use this param if you use the deposit flow. Deposit payment are always processed in EUR.
    */
   currency?: ECurrency;
-}
+};
 
-export interface SaveBookingBaggageType {
+export type SaveBookingBaggageType = {
   combination: SaveBookingCombinationType;
   passengers: number[];
-}
+};
 
-export interface SaveBookingCombinationType {
+export type SaveBookingCombinationType = {
   indices: number[];
   category: string;
   conditions: {
@@ -191,9 +197,43 @@ export interface SaveBookingCombinationType {
     service_flat: number;
     merchant: number;
   };
-}
+};
+
+export type SaveBookingAdditionalServices = {
+  seating: SaveBookingAdditionalServiceSeating[];
+};
+
+export type SaveBookingAdditionalServiceSeating = {
+  segment_code: string;
+  option: string;
+  price?: SaveBookingAdditionalServicePrice;
+  seats?: SaveBookingAdditionalServiceSeat[];
+};
+
+export type SaveBookingAdditionalServicePrice = {
+  amount: string;
+  currency: string;
+  base: string;
+  service: string;
+  service_flat: string;
+  merchant: string;
+};
+
+export type SaveBookingAdditionalServiceSeat = {
+  seat: string;
+  passenger_idx: number;
+  price: SaveBookingAdditionalServicePrice;
+};
 
 export type ConfirmPaymentFlightType = {
   booking_id: string;
   transaction_id: string;
+};
+
+export type AncillariesOffersBookingFlightType = {
+  ancillaries: Array<"seating">;
+  booking_token: string;
+  currency?: ECurrency;
+  passengers: Array<SaveBookingPassengerType>;
+  session_id: string;
 };

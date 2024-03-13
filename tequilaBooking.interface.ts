@@ -279,3 +279,62 @@ export interface IBookingFlightRestrictions {
   height: number;
   width: number;
 }
+
+// ======== Ancillaries Offers ========
+
+export interface IAncillariesOffersBookingFlight {
+  seating: ISeatingAncillariesOffer;
+  session_id: string;
+}
+
+export interface ISeatingAncillariesOffer {
+  offers: IAncillariesOffer[];
+  status: string;
+  ttl: number;
+}
+
+export interface IAncillariesOffer {
+  is_final: boolean;
+  quick_options: IAncillariesOfferQuickOption[];
+  seatmap: IAncillariesOfferSeatMap;
+  segment_code: string;
+}
+
+export interface IAncillariesOfferQuickOption {
+  option: string;
+  price: IAncillariesOffersBookingFlightPrice;
+}
+
+export interface IAncillariesOffersBookingFlightPrice {
+  amount: string;
+  base: string;
+  currency: string;
+  merchant: string;
+  service: string;
+  service_flat: string;
+}
+
+export interface IAncillariesOfferSeatMap {
+  sections: IAncillariesOfferSeatMapSection[];
+}
+
+export interface IAncillariesOfferSeatMapSection {
+  deck: string;
+  rows: ISeatMapSectionRow[];
+  section_class: string;
+}
+
+export interface ISeatMapSectionRow {
+  row_number: number;
+  seat_groups: ISeatMapSectionRowSeatGroup[][];
+}
+
+export interface ISeatMapSectionRowSeatGroup {
+  column: string;
+  features: string[];
+  name: string;
+  price: IAncillariesOffersBookingFlightPrice;
+  seat_class: string;
+  state: string;
+  type: string;
+}

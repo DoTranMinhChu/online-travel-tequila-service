@@ -1,8 +1,12 @@
 import { AxiosInstance } from "axios";
 import { axiosInstance } from "./axiosBase";
 import { TequilaServiceConfig } from "./tequila.type";
-import { IBookingFlight } from "./tequilaBooking.interface";
 import {
+  IAncillariesOffersBookingFlight,
+  IBookingFlight,
+} from "./tequilaBooking.interface";
+import {
+  AncillariesOffersBookingFlightType,
   CheckFlightsType,
   ConfirmPaymentFlightType,
   SaveBookingFlightsType,
@@ -153,6 +157,17 @@ export class TequilaBookingService {
       await this.#_axiosInstance.post<{
         status: number;
       }>("booking/confirm_payment", data)
+    )?.data;
+  }
+
+  async ancillariesOffers(
+    data: AncillariesOffersBookingFlightType
+  ): Promise<IAncillariesOffersBookingFlight> {
+    return (
+      await this.#_axiosInstance.post<IAncillariesOffersBookingFlight>(
+        "booking/ancillaries/offers/check",
+        data
+      )
     )?.data;
   }
 }
