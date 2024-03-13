@@ -70,7 +70,7 @@ export class TequilaBookingService {
    */
   async checkFlights(params: CheckFlightsType): Promise<IBookingFlight> {
     return (
-      await this.#_axiosInstance.get<IBookingFlight>("booking/check_flights", {
+      await this.#_axiosInstance.get<IBookingFlight>("v2/booking/check_flights", {
         params,
       })
     )?.data;
@@ -113,7 +113,7 @@ export class TequilaBookingService {
       };
     return (
       await this.#_axiosInstance.post<IBookingFlight>(
-        "booking/save_booking",
+        "v2/booking/save_booking",
         body,
         {
           params,
@@ -156,7 +156,7 @@ export class TequilaBookingService {
     return (
       await this.#_axiosInstance.post<{
         status: number;
-      }>("booking/confirm_payment", data)
+      }>("v2/booking/confirm_payment", data)
     )?.data;
   }
 
@@ -165,7 +165,7 @@ export class TequilaBookingService {
   ): Promise<IAncillariesOffersBookingFlight> {
     return (
       await this.#_axiosInstance.post<IAncillariesOffersBookingFlight>(
-        "booking/ancillaries/offers/check",
+        "v2/booking/ancillaries/offers/check",
         data
       )
     )?.data;
